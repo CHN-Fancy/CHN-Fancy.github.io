@@ -4,11 +4,38 @@
   
   
   <entry>
-    <title>test2</title>
+    <title>GPIO的八种工作模式</title>
+    <link href="/2020/06/17/GPIO%E7%9A%84%E5%85%AB%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/"/>
+    <url>/2020/06/17/GPIO%E7%9A%84%E5%85%AB%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/</url>
+    
+    <content type="html"><![CDATA[<h1 id="GPIO的八种工作模式"><a href="#GPIO的八种工作模式" class="headerlink" title="GPIO的八种工作模式"></a>GPIO的八种工作模式</h1><p>​        从GPIO（General-purpose input/output，通用输入/输出端口）的名称就能看出，其工作模式就分为两大类：输入、输出。</p><h2 id="输入模式（4种）"><a href="#输入模式（4种）" class="headerlink" title="输入模式（4种）"></a>输入模式（4种）</h2><table><thead><tr><th align="center">名称</th><th align="center">GPIO配置名称</th></tr></thead><tbody><tr><td align="center">模拟输入</td><td align="center">GPIO_Mode_AIN</td></tr><tr><td align="center">浮空输入</td><td align="center">GPIO_Mode_IN_FLOATING</td></tr><tr><td align="center">上拉输入</td><td align="center">GPIO_Mode_IPU</td></tr><tr><td align="center">下拉输入</td><td align="center">GPIO_Mode_IPD</td></tr></tbody></table><ol><li><p>模拟输入：</p><p>用于采集模拟信号的输入方式（ADC），或者低功耗下省电。</p></li><li><p>浮空输入：</p><p>对于浮空输入模式顾名思义也就是输入什么信号才是什么信号，对于浮空输入要保证有明确的输入信号（TTL或者CMOS标准）</p><blockquote><p>1）TTL</p><p>  供电范围在0~5V；如74系列都是5V供电</p><p>  对输出：大于2.7V是高电平；小于0.5V是低电平</p><p>  对输入：大于2V是高电平；小于0.8V是低电平</p><p>2) 3.3 LVTTL</p><p>  供电电压通常小等于3.3V</p><p>  对输出：大于2.0V是高电平；小于0.2V是低电平</p><p>  对输入：大于1.7V是高电平；小于0.7V是低电平</p><p>​    通常在许多处理器芯片都是用的LVTTL标准。</p></blockquote></li><li><p>上拉输入：</p><p>​    区别在于没有输入信号的时候默认输入高电平（因为有弱上拉）。外界还是可以接入低电平以实现低电平的读取。常用于数据传输线的配置。</p></li><li><p>下拉输入：</p><p>​    区别在于没有输入信号的时候默认输入低电平（因为有弱下拉）。外界还是可以接入高电平以实现高电平的读取。也常用于数据传输线的配置。</p></li></ol><h2 id="输出模式（4种）"><a href="#输出模式（4种）" class="headerlink" title="输出模式（4种）"></a>输出模式（4种）</h2><table><thead><tr><th align="center">名称</th><th align="center">GPIO配置名称</th></tr></thead><tbody><tr><td align="center">开漏输出</td><td align="center">GPIO_Mode_Out_OD</td></tr><tr><td align="center">推挽输出</td><td align="center">GPIO_Mode_Out_PP</td></tr><tr><td align="center">复用开漏输出</td><td align="center">GPIO_Mode_AF_OD</td></tr><tr><td align="center">复用推挽输出</td><td align="center">GPIO_Mode_AF_PP</td></tr></tbody></table><ol><li><p>开漏输出</p><p>​        输出端相当于三极管的集电极. 要得到高电平状态需要上拉电阻才行. 适合于做电流型的驱动,其吸收电流的能力相对强(一般20ma以内).</p><p>​        OPEN-DRAIN提供了灵活的输出方式，但是也有其弱点，就是带来上升沿的延时。因为上升沿是通过外接上拉无源电阻对负载充电，所以当电阻选择小时延时就小，但功耗大；反之延时大功耗小。所以如果对延时有要求，则建议用下降沿输出。</p><p>​        可以将多个开漏输出的Pin，连接到一条线上。通过一只上拉电阻，在不增加任何器件的情况下，形成“与逻辑”关系。这也是I2C，SMBus等总线判断总线占用状态的原理。可以理解为：在所有引脚连在一起时，外接一上拉电阻，如果有一个引脚输出为逻辑0，相当于接地，与之并联的回路“相当于被一根导线短路”，所以外电路逻辑电平便为0，只有都为高电平时，与的结果才为逻辑1。</p></li><li><p>推挽输出</p><p>​        可以输出高,低电平,连接数字器件; 推挽结构一般是指两个三极管分别受两互补信号的控制,总是在一个三极管导通的时候另一个截止。高低电平由IC的电源低定。推挽电路是两个参数相同的三极管或MOSFET,以推挽方式存在于电路中,各负责正负半周的波形放大任务,电路工作时，两只对称的功率开关管每次只有一个导通，所以导通损耗小、效率高。输出既可以向负载灌电流，也可以从负载抽取电流。推拉式输出级既提高电路的负载能力，又提高开关速度。</p><img src="https://s1.ax1x.com/2020/06/17/NEfrAf.png" srcset="/img/loading.gif" alt="推挽输出结构图"  /><p>​        在该结构中输入高电平时，经过反向后，上方的P-MOS导通，下方的N-MOS关闭，对外输出高电平；而在该结构中输入低电平时，经过反向后，N-MOS管导通，P-MOS关闭，对外输出低电平。当引脚高低电平切换时，两个管子轮流导通，P管负责灌电流，N管负责拉电流，使其负载能力和开关速度都比普通的方式有很大的提高。推挽输出的低电平为0伏，高电平为3.3伏</p></li><li><p>复用开漏输出</p><p>​        可以理解为GPIO口被用作第二功能时的配置情况（即并非作为通用IO口使用）</p></li><li><p>复用推挽输出</p><p>​        可以理解为GPIO口被用作第二功能时的配置情况（即并非作为通用IO口使用）</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>STM32</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>STM32</tag>
+      
+      <tag>GPIO</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>HEXO</title>
     <link href="/2020/02/28/test2/"/>
     <url>/2020/02/28/test2/</url>
     
-    <content type="html"><![CDATA[<h1 id="安装Linux"><a href="#安装Linux" class="headerlink" title="安装Linux"></a>安装Linux</h1><h2 id="安装所需工具"><a href="#安装所需工具" class="headerlink" title="安装所需工具"></a>安装所需工具</h2><p>测试图片：</p><p><img src="https://s2.ax1x.com/2020/02/27/3wvBng.jpg" srcset="/img/loading.gif" alt="3wvBng.jpg"></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="安装Linux"><a href="#安装Linux" class="headerlink" title="安装Linux"></a>安装Linux</h1><h2 id="安装所需工具"><a href="#安装所需工具" class="headerlink" title="安装所需工具"></a>安装所需工具</h2><p>测试图片：</p><p><img src="https://s2.ax1x.com/2020/02/27/3wvBng.jpg" srcset="/img/loading.gif" alt="3wvBng.jpg"></p><p>生成静态文件</p><pre><code>hexo generate</code></pre><p>启动服务器</p><pre><code>hexo s</code></pre><p>部署deploy</p><pre><code>hexo deploy**也可以简写**hexo d </code></pre><table><thead><tr><th>参数</th><th>描述</th></tr></thead><tbody><tr><td>-g<code>,</code>–generate</td><td>部署之前预先生成静态文件</td></tr></tbody></table>]]></content>
     
     
     
