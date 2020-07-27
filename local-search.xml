@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>STM32位带操作笔记</title>
+    <link href="/2020/07/27/STM32%E4%BD%8D%E5%B8%A6%E6%93%8D%E4%BD%9C/"/>
+    <url>/2020/07/27/STM32%E4%BD%8D%E5%B8%A6%E6%93%8D%E4%BD%9C/</url>
+    
+    <content type="html"><![CDATA[<h1 id="寄存器位带操作"><a href="#寄存器位带操作" class="headerlink" title="寄存器位带操作"></a>寄存器位带操作</h1><h2 id="什么是位带操作？位操作？"><a href="#什么是位带操作？位操作？" class="headerlink" title="什么是位带操作？位操作？"></a>什么是位带操作？位操作？</h2><h3 id="位带操作："><a href="#位带操作：" class="headerlink" title="位带操作："></a>位带操作：</h3><p>​        通过位带区和位带别名区的地址映射关系可以直接访问寄存器的某一位，并向这一位写值（0或1）。</p><h3 id="普通的位操作：（使用“-amp-”，“-”指令来想、实现SRAM区域或者外设存储区进行位操作）"><a href="#普通的位操作：（使用“-amp-”，“-”指令来想、实现SRAM区域或者外设存储区进行位操作）" class="headerlink" title="普通的位操作：（使用“&amp;”，“|”指令来想、实现SRAM区域或者外设存储区进行位操作）"></a>普通的位操作：（使用“&amp;”，“|”指令来想、实现SRAM区域或者外设存储区进行位操作）</h3><p>​        由于STM32是按字节寻址的，所以并不能直接对位进行操作。若要想改变某个寄存器的值，须先通过寄存器的地址找到这个寄存器并读取寄存器的值，然后根据想要的功能修改读到的值，最后再将修改后的值写入寄存器中。</p><h2 id="位带操作的优越性在哪？"><a href="#位带操作的优越性在哪？" class="headerlink" title="位带操作的优越性在哪？"></a>位带操作的优越性在哪？</h2><p>​        相比于普通的位操作来说位带操作少了寄存器的读和修改的步骤，大大提升运行效率。</p><h2 id="什么是位带区什么是位带别名区？"><a href="#什么是位带区什么是位带别名区？" class="headerlink" title="什么是位带区什么是位带别名区？"></a>什么是位带区什么是位带别名区？</h2><h3 id="位带区："><a href="#位带区：" class="headerlink" title="位带区："></a>位带区：</h3><p>​        是寄存器真实存在的区域。每个寄存器都为4个字节（32位）。</p><h3 id="位带别名区："><a href="#位带别名区：" class="headerlink" title="位带别名区："></a>位带别名区：</h3><p>​        是位带区的对应的膨胀区域，可以想象成是一个位带区的映射。位带别名区的某一个字节的地址就对应相应位带区的某一位的地址，对位带别名区的一个字节进行操作就相当于是对位带区中某一位进行操作。</p><h2 id="为什么有的区域不支持位操作？"><a href="#为什么有的区域不支持位操作？" class="headerlink" title="为什么有的区域不支持位操作？"></a>为什么有的区域不支持位操作？</h2><p>​        是由Crotex-M3、C-M4或者其他系统架构所规定的。只要寄存器是属于位带区的，就支持位带操作。Crotex-M3中规定的支持位带操作的区域如下图所示。</p><p><img src="https://s1.ax1x.com/2020/07/27/aPmTBQ.jpg" srcset="/img/loading.gif" alt="aPmTBQ.jpg"></p><p>分两块区域其中一块为SRAM中最低的1M，另一块为外设寄存器中最低的1M。</p><h3 id="位操作支持的区域"><a href="#位操作支持的区域" class="headerlink" title="位操作支持的区域"></a>位操作支持的区域</h3><p>另外在STM32F1xx和STM32F4xx上大部分的外设寄存器都支持位带操作，但少数外设寄存器并不支持位带操作。一位网友的经历，先来一个<a href="http://www.51hei.com/bbs/dpj-51883-1.html" target="_blank" rel="noopener">链接</a>，以防文章被删留图存档。</p><p><img src="https://s1.ax1x.com/2020/07/27/aPupxf.png" srcset="/img/loading.gif" alt="aPupxf.png"></p><h2 id="地址与位的关系（位带区与位带别名区的膨胀关系图）"><a href="#地址与位的关系（位带区与位带别名区的膨胀关系图）" class="headerlink" title="地址与位的关系（位带区与位带别名区的膨胀关系图）"></a>地址与位的关系（位带区与位带别名区的膨胀关系图）</h2><p><img src="https://s1.ax1x.com/2020/07/27/aPuqS0.png" srcset="/img/loading.gif" alt="aPuqS0.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>STM32</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>STM32</tag>
+      
+      <tag>GPIO</tag>
+      
+      <tag>位带操作</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>GPIO的八种工作模式</title>
     <link href="/2020/06/17/GPIO%E7%9A%84%E5%85%AB%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/"/>
     <url>/2020/06/17/GPIO%E7%9A%84%E5%85%AB%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/</url>

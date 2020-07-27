@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="Fancy">
   <meta name="keywords" content="">
-  <title>Fancy&#39;s Blog</title>
+  <title>Archives ~ Fancy&#39;s Blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -107,7 +107,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('https://s2.ax1x.com/2020/02/28/3r3vB6.jpg')no-repeat center center;
+         style="background: url('https://s2.ax1x.com/2020/02/28/3rwgaR.jpg')no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
@@ -139,207 +139,20 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-
-  <div class="row mx-auto index-card">
+<div class="list-group">
+  <p class="h4">3 posts in total.</p>
+  <hr>
+  
     
+      
+      <p class="h5">2020</p>
     
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/07/27/STM32%E4%BD%8D%E5%B8%A6%E6%93%8D%E4%BD%9C/" target="_self">
-          <img src="https://s1.ax1x.com/2020/06/17/NVVNTA.th.jpg" srcset="/img/loading.gif" alt="STM32位带操作笔记" class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/07/27/STM32%E4%BD%8D%E5%B8%A6%E6%93%8D%E4%BD%9C/">
-        <p class="h4 index-header">STM32位带操作笔记</p>
-      </a>
-
-      <a href="/2020/07/27/STM32%E4%BD%8D%E5%B8%A6%E6%93%8D%E4%BD%9C/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">寄存器位带操作什么是位带操作？位操作？位带操作：​        通过位带区和位带别名区的地址映射关系可以直接访问寄存器的某一位，并向这一位写值（0或1）。
-普通的位操作：（使用“&amp;”，“|”指令来想、实现SRAM区域或者外设存储区进行位操作）​        由于STM32是按字节寻址的，所以并不能直接对位进行操作。若要想改变某个寄存器的值，须先通过寄存器的地址找到这个寄存器并读取寄存器的值，然后根据想要的功能修改读到的值，最后再将修改后的值写入寄存器中。
-位带操作的优越性在哪？​        相比于普通的位操作来说位带操作少了寄存器的读和修改的步骤，大大提升运行效率。
-什么是位带区什么是位带别名区？位带区：​        是寄存器真实存在的区域。每个寄存器都为4个字节（32位）。
-位带别名区：​        是位带区的对应的膨胀区域，可以想象成是一个位带区的映射。位带别名区的某一个字节的地址就对应相应位带区的某一位的地址，对位带别名区的一个字节进行操作就相当于是对位带区中某一位进行操作。
-为什么有的区域不支持位操作？​        是由Crotex-M3、C-M4或</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-27&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/STM32">STM32</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/STM32">STM32</a>&nbsp;
-          
-            <a href="/tags/GPIO">GPIO</a>&nbsp;
-          
-            <a href="/tags/%E4%BD%8D%E5%B8%A6%E6%93%8D%E4%BD%9C">位带操作</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/06/17/GPIO%E7%9A%84%E5%85%AB%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/" target="_self">
-          <img src="https://s1.ax1x.com/2020/06/17/NVVNTA.th.jpg" srcset="/img/loading.gif" alt="GPIO的八种工作模式" class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/06/17/GPIO%E7%9A%84%E5%85%AB%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/">
-        <p class="h4 index-header">GPIO的八种工作模式</p>
-      </a>
-
-      <a href="/2020/06/17/GPIO%E7%9A%84%E5%85%AB%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">GPIO的八种工作模式​        从GPIO（General-purpose input/output，通用输入/输出端口）的名称就能看出，其工作模式就分为两大类：输入、输出。
-输入模式（4种）
-
-
-名称
-GPIO配置名称
-
-
-
-模拟输入
-GPIO_Mode_AIN
-
-
-浮空输入
-GPIO_Mode_IN_FLOATING
-
-
-上拉输入
-GPIO_Mode_IPU
-
-
-下拉输入
-GPIO_Mode_IPD
-
-
-
-模拟输入：
-用于采集模拟信号的输入方式（ADC），或者低功耗下省电。
-
-浮空输入：
-对于浮空输入模式顾名思义也就是输入什么信号才是什么信号，对于浮空输入要保证有明确的输入信号（TTL或者CMOS标准）
-
-1）TTL
-  供电范围在0~5V；如74系列都是5V供电
-  对输出：大于2.7V是高电平；小于0.5V是低电平
-  对输入：大于2V是高电平；小于0.8V是低电平
-2) 3.3 LVTTL
-  供电电压通常小等于3.3V
-  对输出：大于2.0V是高电平；小于0.2V是低电平
-  对输入：大于1.7V是高电平；小于0.7V是低电平
-​    通常在许多处理器芯片都是用</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-17&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/STM32">STM32</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/STM32">STM32</a>&nbsp;
-          
-            <a href="/tags/GPIO">GPIO</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/02/28/test2/" target="_self">
-          <img src="https://s2.ax1x.com/2020/02/27/3wvBng.th.jpg" srcset="/img/loading.gif" alt="HEXO" class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/02/28/test2/">
-        <p class="h4 index-header">HEXO</p>
-      </a>
-
-      <a href="/2020/02/28/test2/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">安装Linux安装所需工具测试图片：
-
-生成静态文件
-hexo generate启动服务器
-hexo s部署deploy
-hexo deploy
-
-**也可以简写**
-hexo d 
-
-
-参数
-描述
-
-
-
--g,–generate
-部署之前预先生成静态文件
-
-
+    <a href="/2020/07/27/STM32%E4%BD%8D%E5%B8%A6%E6%93%8D%E4%BD%9C/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">STM32位带操作笔记</span>
+      <span style="float: right;">07-27</span>
+    </a>
+  
 </div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-28&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/linux">linux</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-
-
 
 
               </div>
@@ -465,7 +278,7 @@ hexo d
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "人生在勤，不索何获&nbsp;",
+        "Archive&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
