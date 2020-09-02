@@ -284,8 +284,7 @@
 <p>​        每个IP寄存器的<strong>高4位用来设置抢占和响应优先级</strong>（根据分组），低4位没有用到。</p>
 <p>设置<strong>优先级</strong>方法：</p>
 <p>​    调用函数</p>
-<pre><code class="C">void HAL_NVIC_SetPriority(IRQn_Type IRQn, uint32_t   
-                                                  PreemptPriority, uint32_t SubPriority);
+<pre><code class="C">void HAL_NVIC_SetPriority(IRQn_Type IRQn, uint32_t PreemptPriority, uint32_t SubPriority);
 </code></pre>
 <h2 id="5、中断优先级设置步骤"><a href="#5、中断优先级设置步骤" class="headerlink" title="5、中断优先级设置步骤"></a>5、中断优先级设置步骤</h2><ol>
 <li><p>系统运行后在HAL_Init函数中设置中断优先级分组。调用函数：</p>
