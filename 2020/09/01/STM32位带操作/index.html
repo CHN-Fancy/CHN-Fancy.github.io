@@ -37,6 +37,8 @@
 
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
 
 
@@ -181,7 +183,7 @@
 <h2 id="为什么有的区域不支持位操作？"><a href="#为什么有的区域不支持位操作？" class="headerlink" title="为什么有的区域不支持位操作？"></a>为什么有的区域不支持位操作？</h2><p>​        是由Crotex-M3、C-M4或者其他系统架构所规定的。只要寄存器是属于位带区的，就支持位带操作。Crotex-M3中规定的支持位带操作的区域如下图所示。</p>
 <p><img src="https://s1.ax1x.com/2020/07/27/aPmTBQ.jpg" srcset="/img/loading.gif" alt="aPmTBQ.jpg"></p>
 <p>分两块区域其中一块为SRAM中最低的1M，另一块为外设寄存器中最低的1M。</p>
-<h3 id="位操作支持的区域"><a href="#位操作支持的区域" class="headerlink" title="位操作支持的区域"></a>位操作支持的区域</h3><p>另外在STM32F1xx和STM32F4xx上大部分的外设寄存器都支持位带操作，但少数外设寄存器并不支持位带操作。一位网友的经历，先来一个<a href="http://www.51hei.com/bbs/dpj-51883-1.html" target="_blank" rel="noopener">链接</a>，以防文章被删留图存档。</p>
+<h3 id="位操作支持的区域"><a href="#位操作支持的区域" class="headerlink" title="位操作支持的区域"></a>位操作支持的区域</h3><p>另外在STM32F1xx和STM32F4xx上大部分的外设寄存器都支持位带操作，但少数外设寄存器并不支持位带操作。一位网友的经历，先来一个<a target="_blank" rel="noopener" href="http://www.51hei.com/bbs/dpj-51883-1.html">链接</a>，以防文章被删留图存档。</p>
 <p><img src="https://s1.ax1x.com/2020/07/27/aPupxf.png" srcset="/img/loading.gif" alt="aPupxf.png"></p>
 <h2 id="地址与位的关系（位带区与位带别名区的膨胀关系图）"><a href="#地址与位的关系（位带区与位带别名区的膨胀关系图）" class="headerlink" title="地址与位的关系（位带区与位带别名区的膨胀关系图）"></a>地址与位的关系（位带区与位带别名区的膨胀关系图）</h2><p><img src="https://s1.ax1x.com/2020/07/27/aPuqS0.png" srcset="/img/loading.gif" alt="aPuqS0.png"></p>
 

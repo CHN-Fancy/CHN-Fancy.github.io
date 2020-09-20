@@ -37,6 +37,8 @@
 
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
 
 
@@ -231,10 +233,12 @@ Tx/Rx波特率=\frac{f_{PCLKx}}{(16*USARTDIV)}​        上式中，$f_{PCLKx}$
 
 
 
+
 组
 AIRCR[10:8]
 IP bit[7:4]
 分配结果
+
 
 
 
@@ -268,11 +272,13 @@ IP bit[7:4]
 4位抢占优先级，0位响应优先级
 
 
+
+
 IP bit一共有4位所以一共可以给出16种不同的组合（级别）。
 3、优先级规则
 高优先级的抢占优先级是可以打断正在进行的低抢占优先级中断的。
 抢占优先级相同的中断，高响应优先级不可以打断低响应优先级的中断。（抢占优先级只负责打断进程，响应优先级只负责在两个中断同时发生的时候在抢占优先级相同的情况下哪个先执行，所以响应优先级高的不可进行打断）
-抢占优先级相同的中断，当两个中断同时发生的情况下，哪个响应</div>
+抢占优先级相同的中断，当两个中断同时发生的情况下，</div>
         </div>
       </a>
 
@@ -294,6 +300,96 @@ IP bit一共有4位所以一共可以给出16种不同的组合（级别）。
             <a href="/tags/%E4%B8%AD%E6%96%AD">中断</a>&nbsp;
           
             <a href="/tags/NVIC">NVIC</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/09/01/GPIO%E7%9A%84%E5%85%AB%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/" target="_self">
+          <img src="https://s1.ax1x.com/2020/06/17/NVVNTA.th.jpg" srcset="/img/loading.gif" alt="GPIO的八种工作模式" class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/09/01/GPIO%E7%9A%84%E5%85%AB%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/">
+        <p class="h4 index-header">GPIO的八种工作模式</p>
+      </a>
+
+      <a href="/2020/09/01/GPIO%E7%9A%84%E5%85%AB%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">GPIO的八种工作模式​        从GPIO（General-purpose input/output，通用输入/输出端口）的名称就能看出，其工作模式就分为两大类：输入、输出。
+输入模式（4种）
+
+
+
+名称
+GPIO配置名称
+
+
+
+
+模拟输入
+GPIO_Mode_AIN
+
+
+浮空输入
+GPIO_Mode_IN_FLOATING
+
+
+上拉输入
+GPIO_Mode_IPU
+
+
+下拉输入
+GPIO_Mode_IPD
+
+
+
+
+
+模拟输入：
+用于采集模拟信号的输入方式（ADC），或者低功耗下省电。
+
+浮空输入：
+对于浮空输入模式顾名思义也就是输入什么信号才是什么信号，对于浮空输入要保证有明确的输入信号（TTL或者CMOS标准）
+
+1）TTL
+  供电范围在0~5V；如74系列都是5V供电
+  对输出：大于2.7V是高电平；小于0.5V是低电平
+  对输入：大于2V是高电平；小于0.8V是低电平
+2) 3.3 LVTTL
+  供电电压通常小等于3.3V
+  对输出：大于2.0V是高电平；小于0.2V是低电平
+  对输入：大于1.7V是高电平；小于0.7V是低电平
+​    通常在许多处理器芯</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-09-01&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/STM32">STM32</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/STM32">STM32</a>&nbsp;
+          
+            <a href="/tags/GPIO">GPIO</a>&nbsp;
           
         
       </div>
@@ -347,92 +443,6 @@ IP bit一共有4位所以一共可以给出16种不同的组合（级别）。
             <a href="/tags/GPIO">GPIO</a>&nbsp;
           
             <a href="/tags/%E4%BD%8D%E5%B8%A6%E6%93%8D%E4%BD%9C">位带操作</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/09/01/GPIO%E7%9A%84%E5%85%AB%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/" target="_self">
-          <img src="https://s1.ax1x.com/2020/06/17/NVVNTA.th.jpg" srcset="/img/loading.gif" alt="GPIO的八种工作模式" class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/09/01/GPIO%E7%9A%84%E5%85%AB%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/">
-        <p class="h4 index-header">GPIO的八种工作模式</p>
-      </a>
-
-      <a href="/2020/09/01/GPIO%E7%9A%84%E5%85%AB%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">GPIO的八种工作模式​        从GPIO（General-purpose input/output，通用输入/输出端口）的名称就能看出，其工作模式就分为两大类：输入、输出。
-输入模式（4种）
-
-
-名称
-GPIO配置名称
-
-
-
-模拟输入
-GPIO_Mode_AIN
-
-
-浮空输入
-GPIO_Mode_IN_FLOATING
-
-
-上拉输入
-GPIO_Mode_IPU
-
-
-下拉输入
-GPIO_Mode_IPD
-
-
-
-模拟输入：
-用于采集模拟信号的输入方式（ADC），或者低功耗下省电。
-
-浮空输入：
-对于浮空输入模式顾名思义也就是输入什么信号才是什么信号，对于浮空输入要保证有明确的输入信号（TTL或者CMOS标准）
-
-1）TTL
-  供电范围在0~5V；如74系列都是5V供电
-  对输出：大于2.7V是高电平；小于0.5V是低电平
-  对输入：大于2V是高电平；小于0.8V是低电平
-2) 3.3 LVTTL
-  供电电压通常小等于3.3V
-  对输出：大于2.0V是高电平；小于0.2V是低电平
-  对输入：大于1.7V是高电平；小于0.7V是低电平
-​    通常在许多处理器芯片都是用</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-09-01&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/STM32">STM32</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/STM32">STM32</a>&nbsp;
-          
-            <a href="/tags/GPIO">GPIO</a>&nbsp;
           
         
       </div>

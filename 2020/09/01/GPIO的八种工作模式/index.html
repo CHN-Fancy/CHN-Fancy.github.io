@@ -37,6 +37,8 @@
 
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
 
 
@@ -174,30 +176,34 @@
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
             <h1 id="GPIO的八种工作模式"><a href="#GPIO的八种工作模式" class="headerlink" title="GPIO的八种工作模式"></a>GPIO的八种工作模式</h1><p>​        从GPIO（General-purpose input/output，通用输入/输出端口）的名称就能看出，其工作模式就分为两大类：输入、输出。</p>
-<h2 id="输入模式（4种）"><a href="#输入模式（4种）" class="headerlink" title="输入模式（4种）"></a>输入模式（4种）</h2><table>
+<h2 id="输入模式（4种）"><a href="#输入模式（4种）" class="headerlink" title="输入模式（4种）"></a>输入模式（4种）</h2><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">名称</th>
-<th align="center">GPIO配置名称</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">GPIO配置名称</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">模拟输入</td>
-<td align="center">GPIO_Mode_AIN</td>
+<tbody>
+<tr>
+<td style="text-align:center">模拟输入</td>
+<td style="text-align:center">GPIO_Mode_AIN</td>
 </tr>
 <tr>
-<td align="center">浮空输入</td>
-<td align="center">GPIO_Mode_IN_FLOATING</td>
+<td style="text-align:center">浮空输入</td>
+<td style="text-align:center">GPIO_Mode_IN_FLOATING</td>
 </tr>
 <tr>
-<td align="center">上拉输入</td>
-<td align="center">GPIO_Mode_IPU</td>
+<td style="text-align:center">上拉输入</td>
+<td style="text-align:center">GPIO_Mode_IPU</td>
 </tr>
 <tr>
-<td align="center">下拉输入</td>
-<td align="center">GPIO_Mode_IPD</td>
+<td style="text-align:center">下拉输入</td>
+<td style="text-align:center">GPIO_Mode_IPD</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ol>
 <li><p>模拟输入：</p>
 <p>用于采集模拟信号的输入方式（ADC），或者低功耗下省电。</p>
@@ -223,30 +229,34 @@
 <p>​    区别在于没有输入信号的时候默认输入低电平（因为有弱下拉）。外界还是可以接入高电平以实现高电平的读取。也常用于数据传输线的配置。</p>
 </li>
 </ol>
-<h2 id="输出模式（4种）"><a href="#输出模式（4种）" class="headerlink" title="输出模式（4种）"></a>输出模式（4种）</h2><table>
+<h2 id="输出模式（4种）"><a href="#输出模式（4种）" class="headerlink" title="输出模式（4种）"></a>输出模式（4种）</h2><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">名称</th>
-<th align="center">GPIO配置名称</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">GPIO配置名称</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">开漏输出</td>
-<td align="center">GPIO_Mode_Out_OD</td>
+<tbody>
+<tr>
+<td style="text-align:center">开漏输出</td>
+<td style="text-align:center">GPIO_Mode_Out_OD</td>
 </tr>
 <tr>
-<td align="center">推挽输出</td>
-<td align="center">GPIO_Mode_Out_PP</td>
+<td style="text-align:center">推挽输出</td>
+<td style="text-align:center">GPIO_Mode_Out_PP</td>
 </tr>
 <tr>
-<td align="center">复用开漏输出</td>
-<td align="center">GPIO_Mode_AF_OD</td>
+<td style="text-align:center">复用开漏输出</td>
+<td style="text-align:center">GPIO_Mode_AF_OD</td>
 </tr>
 <tr>
-<td align="center">复用推挽输出</td>
-<td align="center">GPIO_Mode_AF_PP</td>
+<td style="text-align:center">复用推挽输出</td>
+<td style="text-align:center">GPIO_Mode_AF_PP</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ol>
 <li><p>开漏输出</p>
 <p>​        输出端相当于三极管的集电极. 要得到高电平状态需要上拉电阻才行. 适合于做电流型的驱动,其吸收电流的能力相对强(一般20ma以内).</p>
@@ -255,8 +265,7 @@
 </li>
 <li><p>推挽输出</p>
 <p>​        可以输出高,低电平,连接数字器件; 推挽结构一般是指两个三极管分别受两互补信号的控制,总是在一个三极管导通的时候另一个截止。高低电平由IC的电源低定。推挽电路是两个参数相同的三极管或MOSFET,以推挽方式存在于电路中,各负责正负半周的波形放大任务,电路工作时，两只对称的功率开关管每次只有一个导通，所以导通损耗小、效率高。输出既可以向负载灌电流，也可以从负载抽取电流。推拉式输出级既提高电路的负载能力，又提高开关速度。</p>
-<img src="https://s1.ax1x.com/2020/06/17/NEfrAf.png" srcset="/img/loading.gif" alt="推挽输出结构图"  />
-
+<p><img src="https://s1.ax1x.com/2020/06/17/NEfrAf.png" srcset="/img/loading.gif" alt="推挽输出结构图"  /></p>
 <p>​        在该结构中输入高电平时，经过反向后，上方的P-MOS导通，下方的N-MOS关闭，对外输出高电平；而在该结构中输入低电平时，经过反向后，N-MOS管导通，P-MOS关闭，对外输出低电平。当引脚高低电平切换时，两个管子轮流导通，P管负责灌电流，N管负责拉电流，使其负载能力和开关速度都比普通的方式有很大的提高。推挽输出的低电平为0伏，高电平为3.3伏</p>
 </li>
 <li><p>复用开漏输出</p>
