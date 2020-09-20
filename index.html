@@ -144,6 +144,65 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/09/20/STM32%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/" target="_self">
+          <img src="https://s1.ax1x.com/2020/06/17/NVVNTA.th.jpg" srcset="/img/loading.gif" alt="STM32串口通信" class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/09/20/STM32%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/">
+        <p class="h4 index-header">STM32串口通信</p>
+      </a>
+
+      <a href="/2020/09/20/STM32%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1、USARTSTM32串口通信数据格式STM32串口异步通信需要定义的参数：
+起始位：1个逻辑0数据位开始
+数据位（8位或者9位）
+奇偶校验位（第9位）
+停止位（1,1.5,2位）
+波特率设置
+
+图示：
+STM32串口的设置流程​        STM32串口的一般配置流程还算比较简单的。只要你开启了==串口时钟==，并设置相应的==IO口模式==，然后配置一下==波特率==，==数据位长==，==奇偶校验位==等信息就可以使用了。
+​        其中配置串口的最基本设置，就是最波特率的设置，由于我们使用的芯片系统时钟不一样，所以我们要对不同系统时钟下的串口波特率进行设置。STM32中每个串口自己都有一个独立的波特率寄存器USART_BRR。STM32可以将系统时钟和波特率寄存器所代表的值相除得到我们想要的波特率。
+​        这里， 我们简单介绍一下波特率的计算STM32F429 的串口波特率计算公式（OVER8=0）$$Tx/Rx波特率=\frac{f_{PCLKx}}{(16*USARTDIV)}$$
+​        上式中，$f_{PCLKx}$是给串口的时钟（P</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-09-20&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/STM32">STM32</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/STM32">STM32</a>&nbsp;
+          
+            <a href="/tags/%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1">串口通信</a>&nbsp;
+          
+            <a href="/tags/USART">USART</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2020/09/01/STM32%E4%B8%AD%E6%96%AD%E6%8E%A7%E5%88%B6/" target="_self">
           <img src="https://s1.ax1x.com/2020/06/17/NVVNTA.th.jpg" srcset="/img/loading.gif" alt="STM32中断控制" class="index-img img-fluid rounded index-thumbnails">
         </a>
